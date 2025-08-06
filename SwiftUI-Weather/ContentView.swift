@@ -13,30 +13,30 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(isNight: $isNight)
+            BackgroundView(isNight: isNight)
             VStack{
                 CityTextView(cityName: "Cupertino, CA")
                 
                 MainWeatherStatusView(imageName: isNight ? "moon.stars.fill" :"cloud.sun.fill", temperature: 76)
                 
                 HStack(spacing: 20) {
-                    WeatherDayView(isNight: $isNight,
+                    WeatherDayView(isNight: isNight,
                                    dayOfWeek: "TUE",
                                    imageName: "cloud.sun.fill",
                                    temperature: 74)
-                    WeatherDayView(isNight: $isNight,
+                    WeatherDayView(isNight: isNight,
                                    dayOfWeek: "WED",
                                    imageName: "sun.max.fill",
                                    temperature: 88)
-                    WeatherDayView(isNight: $isNight,
+                    WeatherDayView(isNight: isNight,
                                    dayOfWeek: "THU",
                                    imageName: "wind.snow",
                                    temperature: 55)
-                    WeatherDayView(isNight: $isNight,
+                    WeatherDayView(isNight: isNight,
                                    dayOfWeek: "FRI",
                                    imageName: "sunset.fill",
                                    temperature: 60)
-                    WeatherDayView(isNight: $isNight,
+                    WeatherDayView(isNight: isNight,
                                    dayOfWeek: "SAT",
                                    imageName: "snow",
                                    temperature: 25)
@@ -64,7 +64,7 @@ struct ContentView: View {
 
 struct WeatherDayView: View {
     
-    @Binding var isNight: Bool
+   var isNight: Bool
     
     var dayOfWeek: String
     var imageName: String
@@ -90,7 +90,7 @@ struct WeatherDayView: View {
 
 struct BackgroundView: View {
     
-    @Binding var isNight: Bool
+    var isNight: Bool
     
     var body: some View {
         
